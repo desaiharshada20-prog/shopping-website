@@ -1,0 +1,253 @@
+/* ShopKart - Modern E-Commerce Styles (Amazon & Flipkart Inspired) */
+:root {
+  --primary-blue: #2874f0;       /* Flipkart Signature Blue */
+  --primary-navy: #131921;       /* Amazon Top Bar Dark Navy */
+  --secondary-navy: #232f3e;     /* Amazon Nav Subbar */
+  --accent-yellow: #ff9f00;      /* Flipkart CTA Amber / Amazon Gold */
+  --accent-orange: #fb641b;      /* Flipkart Orange "Buy Now" */
+  --accent-green: #388e3c;       /* Flipkart Success / Ratings Green */
+  --prime-blue: #007185;         /* Amazon Teal / Link Blue */
+  --bg-main: #f1f3f6;            /* Flipkart Off-White Page Background */
+  --card-bg: #ffffff;
+  --text-primary: #1e293b;
+  --text-secondary: #64748b;
+  --border-color: #e2e8f0;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -2px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -4px rgba(0,0,0,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.12), 0 8px 10px -6px rgba(0,0,0,0.08);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Assured / Prime Badges */
+.badge-assured {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background: #e8f0fe;
+  color: #1a73e8;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.2px;
+  font-style: italic;
+  border: 1px solid rgba(26, 115, 232, 0.25);
+}
+
+.badge-assured .plus {
+  color: #fbbc04;
+  font-weight: 800;
+  font-style: normal;
+}
+
+/* Flipkart-style Green Rating Badge */
+.rating-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  background-color: var(--accent-green);
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 2px 6px;
+  border-radius: 4px;
+  line-height: 1.2;
+}
+
+/* Product Card Styling */
+.product-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  border-radius: var(--radius-md);
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -6px rgba(0, 0, 0, 0.12), 0 4px 8px -2px rgba(0, 0, 0, 0.05);
+  border-color: #cbd5e1;
+}
+
+.product-card .img-container {
+  position: relative;
+  width: 100%;
+  padding-top: 85%;
+  background-color: #f8fafc;
+  overflow: hidden;
+}
+
+.product-card .img-container img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 16px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover .img-container img {
+  transform: scale(1.06);
+}
+
+/* Buttons (Flipkart Yellow / Orange & Amazon Accent) */
+.btn-flipkart-cart {
+  background-color: #ff9f00;
+  color: #ffffff;
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+}
+.btn-flipkart-cart:hover {
+  background-color: #f39700;
+  box-shadow: 0 2px 8px rgba(255, 159, 0, 0.4);
+}
+
+.btn-flipkart-buy {
+  background-color: #fb641b;
+  color: #ffffff;
+  font-weight: 600;
+  transition: var(--transition);
+  border: none;
+}
+.btn-flipkart-buy:hover {
+  background-color: #ea580c;
+  box-shadow: 0 2px 8px rgba(251, 100, 27, 0.4);
+}
+
+.btn-amazon-primary {
+  background-color: #ffd814;
+  border: 1px solid #fcd200;
+  color: #0f1111;
+  font-weight: 600;
+  border-radius: 9999px;
+  transition: var(--transition);
+}
+.btn-amazon-primary:hover {
+  background-color: #f7ca00;
+  border-color: #f2c200;
+}
+
+/* Search input with focus glow */
+.search-input:focus {
+  outline: none;
+  border-color: #ff9900 !important;
+  box-shadow: 0 0 0 3px rgba(255, 153, 0, 0.3) !important;
+}
+
+/* Drawer & Modal Overlays */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.drawer-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(15, 23, 42, 0.5);
+  backdrop-filter: blur(2px);
+  z-index: 998;
+}
+
+/* Range Slider */
+input[type=range] {
+  accent-color: var(--primary-blue);
+}
+
+/* Confetti effect */
+@keyframes confettiPop {
+  0% { transform: scale(0.8); opacity: 0; }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.confetti-container {
+  animation: confettiPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Custom Checkbox */
+.custom-checkbox:checked {
+  background-color: var(--primary-blue);
+  border-color: var(--primary-blue);
+}
+
+/* Sticky Header shadows */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
